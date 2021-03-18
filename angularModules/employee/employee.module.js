@@ -44,7 +44,7 @@
                             '<td>{{user.vertical}}</td>'+
                             '<td>{{user.salary}}</td>'+
                             '<td>'+
-                                ' <a ui-sref="main.employee.edit({id:user.id})"><button ng-click="viewCtrl.getById(user.id)">Edit</button></a> '+
+                                ' <a ui-sref="main.employee.edit({id:user.id})"><button>Edit</button></a> '+
                                 ' <a ui-sref="main.employee.delete({id:user.id})"><button>Delete</button></a> '+
                             '</td>'+
                         '</tr>'+
@@ -109,7 +109,7 @@
                     '<button>Submit</button>'+
                 '</form>'
                 ,
-                controller: 'EmployeeController',
+                controller: 'EmployeeEditController',
                 controllerAs: 'editCtrl',
                 params: {
                     id : null

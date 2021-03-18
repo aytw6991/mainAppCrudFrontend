@@ -12,8 +12,8 @@
         vm.childBack = childBack;
         vm.createUser = createUser;
         vm.deleteUser = deleteUser;
-        vm.editUser = editUser;
-        vm.getById = getById;
+        // vm.editUser = editUser;
+        // vm.getById = getById;
         vm.getUnits = getUnits;
         vm.getUsers = getUsers;
         vm.id = $stateParams.id;
@@ -48,21 +48,21 @@
                 });
         };
 
-        function editUser(){
-            return employeeService.editUser(vm.id, vm.user)
-                .then(function(){
-                    $state.go('^.view');
-                });
-        };
+        // function editUser(){
+        //     return employeeService.editUser(vm.id, vm.user)
+        //         .then(function(){
+        //             $state.go('^.view');
+        //         });
+        // };
 
-        function getById(id){
-            return employeeService.getById(id)
-                .then(function(data){
-                    vm.user = data;
-                    $log.info(vm.user);
-                    return vm.user;
-                });
-        };
+        // function getById(){
+        //     return employeeService.getById(vm.id)
+        //         .then(function(data){
+        //             vm.user = data;
+        //             $log.info(vm.user);
+        //             return vm.user;
+        //         });
+        // };
 
         function getUnits(){
             return unitService.getUnits()
