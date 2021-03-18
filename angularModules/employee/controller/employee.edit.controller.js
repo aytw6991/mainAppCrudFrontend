@@ -23,7 +23,7 @@
 
         function childBack(){
             $state.go('^.view');
-        }
+        };
 
         function editUser(){
             return employeeService.editUser(vm.id, vm.user);
