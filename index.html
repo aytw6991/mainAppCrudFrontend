@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HRIS</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.29/angular-ui-router.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="app.module.js"></script>
+    
+    <script src="angularModules/employee/employee.module.js"></script>
+    <script src="angularModules/employee/controller/employee.controller.js"></script>
+    <script src="angularModules/employee/service/employee.service.js"></script>
+
+    <script src="angularModules/unit/unit.module.js"></script>
+    <script src="angularModules/unit/controller/unit.controller.js"></script>
+    <script src="angularModules/unit/service/unit.service.js"></script>
+    
+    <script src="angularModules/attendance/attendance.module.js"></script>
+    <script src="angularModules/attendance/controller/attendance.controller.js"></script>
+    <script src="angularModules/attendance/service/attendance.service.js"></script>
+
+</head>
+<body ng-app="mainApp">
+		<a ui-sref="main"><button>Home</button></a>
+		<br><br>
+		<ui-view></ui-view>
+		<br><br>
+</body>
+</html>
