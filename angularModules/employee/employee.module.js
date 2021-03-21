@@ -46,6 +46,7 @@
                             '<td>'+
                                 ' <a ui-sref="main.employee.edit({id:user.id})"><button>Edit</button></a> '+
                                 ' <a ui-sref="main.employee.delete({id:user.id})"><button>Delete</button></a> '+
+                                ' <a ui-sref="main.attendance({id:user.id})"><button>Check In</button></a> '+
                             '</td>'+
                         '</tr>'+
                     '</table>'+
