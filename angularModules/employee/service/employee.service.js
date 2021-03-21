@@ -24,40 +24,40 @@
             return $http.post(vm.url, user)
                 .then(handleSuccess)
                 .catch(handleError);
-        }
+        };
 
         function deleteUser(id){
             return $http.delete(vm.url + '/' + id)
                 .then(handleSuccess)
                 .catch(handleError);
-        }
+        };
 
         function editUser(id, user){
             return $http.put(vm.url + '/' + id, user)
                 .then(handleSuccess)
                 .catch(handleError);
-        }
+        };
 
         function getById(id){
             return $http.get(vm.url + '/' + id)
                 .then(handleSuccess)
                 .catch(handleError);
-        }
+        };
 
         function getUsers(){
             return $http.get(vm.url)
                 .then(handleSuccess)
                 .catch(handleError);
-        }
+        };
 
     
         function handleSuccess(response){
             // $log.info(response)
             return response.data;
-        }
+        };
 
         function handleError(error){
             return $log.error(error.data)
-        }
-    }
+        };
+    };
 })();
