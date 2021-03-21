@@ -12,6 +12,10 @@
                 template:
                 '<div ui-view>'+
                     '<button ng-click="mainCtrl.parentBack()">Back</button><br><br>'+
+                    '<select ng-model="mainCtrl.user.loggedBy" required>'+
+                        '<option value="">--Select Employee--</option>'+
+                        '<option ng-repeat="user in mainCtrl.users">{{user.name}}</option>'+
+                    '</select> '+
                     '<a ui-sref="main.attendance.create"><button ng-click="mainCtrl.checkIn()">Check In</button></a> '+
                     '<a ui-sref="main.attendance.view"><button>View Records</button></a>'+
                 '</div>',
@@ -21,7 +25,7 @@
             .state('main.attendance.create', {
                 url: '/create',
                 template:
-                '<button ng-click="createCtrl.childBack()">Back</button><br><br>'+
+                '<button ng-click="createCtrl.childBack()">Back</button><br><br> '+
                 'Checked In',
                 controller: 'AttendanceController',
                 controllerAs: 'createCtrl'
@@ -36,10 +40,12 @@
                         '<tr>'+
                             '<th>Id</th>'+
                             '<th>Logged Time</th>'+
+                            '<th>Logged By</th>'+
                         '</tr>'+
-                        '<tr ng-repeat="time in viewCtrl.times">'+
+                        '<tr ng-repeat="time in viewCtrl.loggedData">'+
                             '<td>{{time.id}}</td>'+
                             '<td>{{time.loggedTime}}</td>'+
+                            '<td>{{time.loggedBy}}</td>'+
                         '</tr>'+
                     '</table>'+
                 '</div>'
