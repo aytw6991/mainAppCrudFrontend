@@ -11,6 +11,7 @@
                 url: 'attendance',
                 template:
                 '<div ui-view>'+
+                    '<button ng-click="mainCtrl.parentBack()">Back</button><br><br>'+
                     '<a ui-sref="main.attendance.create"><button ng-click="mainCtrl.checkIn()">Check In</button></a> '+
                     '<a ui-sref="main.attendance.view"><button>View Records</button></a>'+
                 '</div>',
@@ -20,7 +21,7 @@
             .state('main.attendance.create', {
                 url: '/create',
                 template:
-                '<button ng-click="createCtrl.back()">Back</button><br><br>'+
+                '<button ng-click="createCtrl.childBack()">Back</button><br><br>'+
                 'Checked In',
                 controller: 'AttendanceController',
                 controllerAs: 'createCtrl'
@@ -29,7 +30,7 @@
             .state('main.attendance.view', {
                 url: '/view',
                 template:
-                '<button ng-click="viewCtrl.back()">Back</button><br><br>'+
+                '<button ng-click="viewCtrl.parentBack()">Back</button><br><br>'+
                 '<div ui-view>'+
                     '<table>'+
                         '<tr>'+
