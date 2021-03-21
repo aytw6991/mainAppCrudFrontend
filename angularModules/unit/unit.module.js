@@ -23,12 +23,10 @@
                 '<div ui-view>'+
                     '<table>'+
                         '<tr>'+
-                            '<th>ID</th>'+
                             '<th>Unit</th>'+
                             '<th>Actions</th>'+
                         '</tr>'+
                         '<tr ng-repeat="unit in viewCtrl.units">'+
-                            '<td>{{unit.id}}</td>'+
                             '<td>{{unit.name}}</td>'+
                             '<td>'+
                                 '<a ui-sref="main.unit.edit({id:unit.id})"><button>Edit</button></a> '+
