@@ -18,8 +18,8 @@
 
         return vm.service;
 
-        function checkIn(){
-            return $http.post(vm.url)
+        function checkIn(user){
+            return $http.post(vm.url, user)
                 .then(handleSuccess)
                 .catch(handleError);
         };
