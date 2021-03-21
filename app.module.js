@@ -15,6 +15,7 @@
                 url: '/',
                 template:
 					'<div ui-view>'+
+                        '<a ui-sref="main.attendance"><button>Attendance</button></a> '+
                         '<a ui-sref="main.employee"><button>Employee</button></a> '+
                         '<a ui-sref="main.unit"><button>Unit</button></a>'+
 					'</div>'
