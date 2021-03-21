@@ -4,9 +4,9 @@
     angular.module('mainApp.employee')
             .controller('EmployeeController', EmployeeController);
 
-    EmployeeController.$inject = ['employeeService', 'unitService', '$stateParams', '$state', '$log'];
+    EmployeeController.$inject = ['employeeService', 'unitService', '$stateParams', '$state'];
     
-    function EmployeeController(employeeService, unitService, $stateParams, $state, $log){
+    function EmployeeController(employeeService, unitService, $stateParams, $state){
         var vm = this;
 
         vm.childBack = childBack;
@@ -16,6 +16,7 @@
         vm.id = $stateParams.id;
         vm.parentBack = parentBack;
         vm.units = [];
+        vm.user = {};
         vm.users = [];
         
         activate();
