@@ -14,12 +14,12 @@
         vm.deleteUser = deleteUser;
         // vm.editUser = editUser;
         // vm.getById = getById;
-        vm.getUnits = getUnits;
+        // vm.getUnits = getUnits;
         vm.getUsers = getUsers;
         vm.id = $stateParams.id;
         vm.parentBack = parentBack;
         vm.units = [];
-        vm.user = {};
+        // vm.user = {};
         vm.users = [];
         
         activate();
