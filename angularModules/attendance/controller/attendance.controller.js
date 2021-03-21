@@ -9,9 +9,10 @@
     function AttendanceController(attendanceService, $state){
         var vm = this;
 
-        vm.back = back;
+        vm.childBack = childBack;
         vm.checkIn = checkIn;
         vm.getAll = getAll;
+        vm.parentBack = parentBack;
         vm.times = [];
 
         activate();
@@ -20,8 +21,12 @@
             getAll();
         };
 
-        function back(){
+        function childBack(){
             $state.go('^');
+        };
+        
+        function checkIn(){
+            return attendanceService.checkIn();
         };
 
         function getAll(){
@@ -32,8 +37,8 @@
                 });
         };
 
-        function checkIn(){
-            return attendanceService.checkIn();
+        function parentBack(){
+            $state.go('^');
         };
     }
 })();
