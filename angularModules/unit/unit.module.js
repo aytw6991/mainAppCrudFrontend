@@ -62,7 +62,7 @@
                     '<button>Submit</button>'+
                 '</form>'
                 ,
-                controller: 'UnitController',
+                controller: 'UnitEditController',
                 controllerAs: 'editCtrl',
                 params: {
                     id: null
