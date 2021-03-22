@@ -10,7 +10,7 @@
         var vm = this;
 
         vm.service = {
-            checkIn: checkIn,
+            log: log,
             getAll: getAll,
             getEarly: getEarly,
             getLate: getLate
@@ -20,7 +20,7 @@
 
         return vm.service;
 
-        function checkIn(user){
+        function log(user){
             return $http.post(vm.url, user)
                 .then(handleSuccess)
                 .catch(handleError);
