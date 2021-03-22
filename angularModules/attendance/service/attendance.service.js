@@ -12,6 +12,8 @@
         vm.service = {
             checkIn: checkIn,
             getAll: getAll,
+            getEarly: getEarly,
+            getLate: getLate
         };
         
         vm.url = 'http://localhost:8080/HRIS-web/webresources/attendance';
@@ -26,6 +28,18 @@
 
         function getAll(){
             return $http.get(vm.url)
+                .then(handleSuccess)
+                .catch(handleError);
+        };
+
+        function getEarly(){
+            return $http.get(vm.url + '/early')
+                .then(handleSuccess)
+                .catch(handleError);
+        };
+
+        function getLate(){
+            return $http.get(vm.url + '/late')
                 .then(handleSuccess)
                 .catch(handleError);
         };
