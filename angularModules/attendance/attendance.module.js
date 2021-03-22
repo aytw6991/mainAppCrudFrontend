@@ -11,32 +11,30 @@
                 url: 'attendance',
                 template:
                 '<div ui-view>'+
-                    '<button ng-click="mainCtrl.parentBack()">Back</button><br><br>'+
-                    '<select ng-model="mainCtrl.user.loggedBy" required>'+
-                        '<option value="">--Select Employee--</option>'+
-                        '<option ng-repeat="user in mainCtrl.users">{{user.name}}</option>'+
-                    '</select> '+
-                    '<a ui-sref="main.attendance.create"><button ng-click="mainCtrl.checkIn()">Check In</button></a> '+
-                    '<a ui-sref="main.attendance.view"><button>View Records</button></a>'+
+                    '<button ng-click="mainCtrl.back()">Back</button><br><br>'+
+                    '<a ui-sref="main.attendance.view"><button>View Records</button></a><br><br>'+
+                    '<form ng-submit="mainCtrl.log()" required>'+
+                        '<select ng-model="mainCtrl.user.loggedBy" required>'+
+                            '<option value="">--Select Employee--</option>'+
+                            '<option ng-repeat="user in mainCtrl.users">{{user.name}}</option>'+
+                        '</select> '+
+                        '<select ng-model="mainCtrl.user.status" required>'+
+                            '<option value="">--In/Out--</option>'+
+                            '<option value="Check In">Check In</option>'+
+                            '<option value="Check Out">Check Out</option>'+
+                        '</select> '+
+                        '<button>Submit</button>'+
+                    '</form>'+
                 '</div>',
                 controller: 'AttendanceController',
                 controllerAs: 'mainCtrl'
             })
-            .state('main.attendance.create', {
-                url: '/create',
-                template:
-                '<button ng-click="createCtrl.childBack()">Back</button><br><br> '+
-                'Checked In',
-                controller: 'AttendanceController',
-                controllerAs: 'createCtrl'
-
-            })
             .state('main.attendance.view', {
                 url: '/view',
                 template:
-                '<button ng-click="viewCtrl.parentBack()">Back</button><br><br>'+
-                '<a ui-sref="main.attendance.view.early"><button>Early log</button></a> '+
-                '<a ui-sref="main.attendance.view.late"><button>Late log</button></a>'+
+                '<button ng-click="viewCtrl.back()">Back</button><br><br>'+
+                '<a ui-sref="main.attendance.view.late"><button>Late Check In</button></a> '+
+                '<a ui-sref="main.attendance.view.early"><button>Early Check Out</button></a>'+
                 '<div ui-view><br>'+
                     '<table>'+
                         '<tr>'+
@@ -44,12 +42,14 @@
                             '<th>Logged By</th>'+
                             '<th>Logged Date</th>'+
                             '<th>Logged Time</th>'+
+                            '<th>Status</th>'+
                         '</tr>'+
                         '<tr ng-repeat="time in viewCtrl.loggedData">'+
                             '<td>{{time.id}}</td>'+
                             '<td>{{time.loggedBy}}</td>'+
                             '<td>{{time.loggedDate}}</td>'+
                             '<td>{{time.loggedTime}}</td>'+
+                            '<td>{{time.status}}</td>'+
                         '</tr>'+
                     '</table>'+
                 '</div>'
