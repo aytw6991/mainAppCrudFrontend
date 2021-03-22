@@ -35,23 +35,69 @@
                 url: '/view',
                 template:
                 '<button ng-click="viewCtrl.parentBack()">Back</button><br><br>'+
-                '<div ui-view>'+
+                '<a ui-sref="main.attendance.view.early"><button>Early log</button></a> '+
+                '<a ui-sref="main.attendance.view.late"><button>Late log</button></a>'+
+                '<div ui-view><br>'+
                     '<table>'+
                         '<tr>'+
                             '<th>Id</th>'+
-                            '<th>Logged Time</th>'+
                             '<th>Logged By</th>'+
+                            '<th>Logged Date</th>'+
+                            '<th>Logged Time</th>'+
                         '</tr>'+
                         '<tr ng-repeat="time in viewCtrl.loggedData">'+
                             '<td>{{time.id}}</td>'+
-                            '<td>{{time.loggedTime}}</td>'+
                             '<td>{{time.loggedBy}}</td>'+
+                            '<td>{{time.loggedDate}}</td>'+
+                            '<td>{{time.loggedTime}}</td>'+
                         '</tr>'+
                     '</table>'+
                 '</div>'
                 ,
                 controller: 'AttendanceController',
                 controllerAs: 'viewCtrl'
+            })
+            .state('main.attendance.view.early',{
+                url: '/early',
+                template:
+                '<br><table>'+
+                    '<tr>'+
+                        '<th>Id</th>'+
+                        '<th>Logged Date</th>'+
+                        '<th>Logged Time</th>'+
+                        '<th>Logged By</th>'+
+                    '</tr>'+
+                    '<tr ng-repeat="user in earlyCtrl.earlyUsers">'+
+                        '<td>{{user.id}}</td>'+
+                        '<td>{{user.loggedDate}}</td>'+
+                        '<td>{{user.loggedTime}}</td>'+
+                        '<td>{{user.loggedBy}}</td>'+
+                    '</tr>'+
+                '</table>'
+                ,
+                controller: 'AttendanceController',
+                controllerAs: 'earlyCtrl'
+            })
+            .state('main.attendance.view.late', {
+                url: '/late',
+                template:
+                '<br><table>'+
+                    '<tr>'+
+                        '<th>Id</th>'+
+                        '<th>Logged Date</th>'+
+                        '<th>Logged Time</th>'+
+                        '<th>Logged By</th>'+
+                    '</tr>'+
+                    '<tr ng-repeat="user in lateCtrl.lateUsers">'+
+                        '<td>{{user.id}}</td>'+
+                        '<td>{{user.loggedDate}}</td>'+
+                        '<td>{{user.loggedTime}}</td>'+
+                        '<td>{{user.loggedBy}}</td>'+
+                    '</tr>'+
+                '</table>'
+                ,
+                controller: 'AttendanceController',
+                controllerAs: 'lateCtrl'
             })
     };
 })();
