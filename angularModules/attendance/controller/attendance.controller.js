@@ -9,16 +9,15 @@
     function AttendanceController(attendanceService, employeeService, $state){
         var vm = this;
 
-        vm.childBack = childBack;
-        vm.checkIn = checkIn;
+        vm.back = back;
         vm.earlyUsers = [];
         vm.getAll = getAll;
         vm.getEarly = getEarly;
         vm.getLate = getLate;
         vm.getUsers = getUsers;
         vm.lateUsers = [];
+        vm.log = log;
         vm.loggedData = [];
-        vm.parentBack = parentBack;
         vm.user = {};
         vm.users = [];
 
@@ -31,12 +30,8 @@
             getUsers();
         };
 
-        function childBack(){
+        function back(){
             $state.go('^');
-        };
-        
-        function checkIn(){
-            return attendanceService.checkIn(vm.user);
         };
 
         //get all attendance data
@@ -73,8 +68,11 @@
                 });
         };
 
-        function parentBack(){
-            $state.go('^');
+        function log(){
+            return attendanceService.log(vm.user)
+                .then(function(){
+                    $state.go('^.attendance.view');
+                });
         };
     };
 })();
