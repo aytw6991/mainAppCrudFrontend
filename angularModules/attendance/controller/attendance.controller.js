@@ -11,8 +11,12 @@
 
         vm.childBack = childBack;
         vm.checkIn = checkIn;
+        vm.earlyUsers = [];
         vm.getAll = getAll;
+        vm.getEarly = getEarly;
+        vm.getLate = getLate;
         vm.getUsers = getUsers;
+        vm.lateUsers = [];
         vm.loggedData = [];
         vm.parentBack = parentBack;
         vm.user = {};
@@ -22,6 +26,8 @@
 
         function activate(){
             getAll();
+            getEarly();
+            getLate();
             getUsers();
         };
 
@@ -39,6 +45,22 @@
                 .then(function(data){
                     vm.loggedData = data;
                     return vm.loggedData;
+                });
+        };
+
+        function getEarly(){
+            return attendanceService.getEarly()
+                .then(function(data){
+                    vm.earlyUsers = data;
+                    return vm.earlyUsers;
+                });
+        };
+
+        function getLate(){
+            return attendanceService.getLate()
+                .then(function(data){
+                    vm.lateUsers = data;
+                    return vm.lateUsers;
                 });
         };
 
